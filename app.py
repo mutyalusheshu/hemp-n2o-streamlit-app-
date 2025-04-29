@@ -1,11 +1,12 @@
-# Fix the syntax error by properly escaping the markdown inside the Python string
+import os
+import zipfile
 
 # Recreate the repo after environment reset
 base_dir = "/mnt/data/hemp-n2o-streamlit-app-v2"
 os.makedirs(base_dir, exist_ok=True)
 
 # app.py
-app_code = '''\
+app_code = """\
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -47,13 +48,11 @@ st.pyplot(fig)
 # Technical Note
 st.markdown("---")
 st.markdown("### 📑 Technical Note")
-st.markdown(\"\"\"
+st.markdown(\"""
 This tool uses a simplified empirical model to estimate N₂O emissions from hemp cropping systems. It is based on observed relationships between nitrogen rate, rainfall, and management practices from experimental field trials and relevant literature.
 
 **Model Equation:**
-
-    N2O = α + β₁ * N_rate + β₂ * Rainfall + β₃ * CoverCrop
-
+N2O = α + β₁ * N_rate + β₂ * Rainfall + β₃ * CoverCrop
 with coefficients:  
 - α = 0.5  
 - β₁ = 0.015  
@@ -61,17 +60,34 @@ with coefficients:
 - β₃ = -0.1 (if cover crop is present)
 
 For detailed methodology, see the Technical Document in this repository.
-\"\"\")
+\""")
 
 # References
 st.markdown("### 📚 References")
-st.markdown(\"\"\"
+st.markdown(\"""
 1. Ludwig, J., et al. (2001). *Soil–air exchange of nitric oxide*. Biogeochemistry.  
 2. Firestone, M., & Davidson, E. (1989). *Microbial basis of NO and N₂O production*.  
 3. IPCC (2006). *Guidelines for GHG Inventories: AFOLU*.  
 4. COMET-Farm, USDA. https://cometfarm.nrel.colostate.edu
-\"\"\")
-'''
+\""")
+"""
 
 with open(f"{base_dir}/app.py", "w") as f:
     f.write(app_code)
+
+# requirements.txt
+requirements = "streamlit\nnumpy\npandas\nmatplotlib"
+with open(f"{base_dir}/requirements.txt", "w") as f:
+    f.write(requirements)
+
+# README.md
+readme = """\
+# Hemp N₂O Emissions Estimator (v2)
+
+This Streamlit app estimates nitrous oxide (N₂O) emissions from hemp fields using a simplified empirical model based on nitrogen rate, rainfall, soil type, and cover cropping.
+
+## Run Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
