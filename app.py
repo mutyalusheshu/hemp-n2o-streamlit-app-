@@ -44,3 +44,22 @@ st.markdown("""
 This tool uses a simplified empirical model to estimate N₂O emissions from hemp cropping systems. It is based on observed relationships between nitrogen rate, rainfall, and management practices from experimental field trials and relevant literature.
 
 **Model Equation:**
+N2O = α + β₁ * N_rate + β₂ * Rainfall + β₃ * CoverCrop
+with coefficients:  
+- α = 0.5  
+- β₁ = 0.015  
+- β₂ = 0.002  
+- β₃ = -0.1 (if cover crop is present)
+
+For detailed methodology, see the [Technical Document (PDF)](https://github.com/yourrepo/hemp-n2o-streamlit-app-v2/blob/main/technical_doc_v2.pdf).
+""")
+
+# 📚 References
+st.markdown("### 📚 References")
+st.markdown("""
+1. Ludwig, J., et al. (2001). *Soil–air exchange of nitric oxide*. Biogeochemistry.  
+2. Firestone, M., & Davidson, E. (1989). *Microbial basis of NO and N₂O production*.  
+3. IPCC (2006). *Guidelines for GHG Inventories: AFOLU*.  
+4. COMET-Farm, USDA. [https://cometfarm.nrel.colostate.edu](https://cometfarm.nrel.colostate.edu)
+""")
+
