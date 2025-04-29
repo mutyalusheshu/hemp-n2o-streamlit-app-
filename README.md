@@ -1,4 +1,4 @@
-# Hemp N₂O Estimator 🌿
+# Hemp N₂O Estimator
 
 This [Streamlit app](https://sheshu-n2o-hemp.streamlit.app) estimates nitrous oxide (N₂O) emissions from hemp cultivation based on soil type, cover cropping, and nitrogen fertilizer rate.
 
