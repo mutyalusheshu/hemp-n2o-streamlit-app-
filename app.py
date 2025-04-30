@@ -1,9 +1,9 @@
 import streamlit as st
 import numpy as np
 
-st.set_page_config(page_title="Hemp GHG Estimator", layout="centered")
+st.set_page_config(page_title="Hemp GHG Stimulator", layout="centered")
 
-st.title("🌿 Hemp N₂O Emissions Estimator")
+st.title("🌿 Hemp N₂O Emissions Stimulator")
 
 # Input widgets
 soil = st.selectbox("Select Soil Type", ["Loamy", "Sandy", "Clayey"])
