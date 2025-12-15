@@ -10,7 +10,7 @@ soil = st.selectbox("Select Soil Type", ["Loamy", "Sandy", "Clayey"])
 cover_crop = st.radio("Cover Crop Used?", ["Yes", "No"])
 n_rate = st.slider("Nitrogen Fertilizer (lbs/ac)", 0, 225, 75)
 rainfall = st.slider("Total Rainfall (mm)", 0, 300, 120)
-WPFS = st.slider ("WFPS (%)", 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+wfps = st.slider ("WFPS (%)", 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 temperature = st.slider("Average Temperature (°C)", 5, 35, 20)
 
 # Simple model
